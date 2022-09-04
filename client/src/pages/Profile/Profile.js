@@ -28,7 +28,7 @@ const Profile = (props) => {
     const userCtx = useContext(UserContext);
     const dataCtx = useContext(DataContext)
 
-    const { error, sendRequest } = useFetch();
+    const { isLoading, error, sendRequest } = useFetch();
 
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const pwRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&§+*=]).{8,}$/;
@@ -155,6 +155,7 @@ const Profile = (props) => {
 
     return(
         <>
+            {isLoading && <p>Profil lädt...</p>}
             {userData && <div className={classes.grid}>
                 <header>
                     <div className={classes.imageWrapper}>

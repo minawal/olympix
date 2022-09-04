@@ -16,7 +16,7 @@ const CreatedEvents = (props) => {
 
     const authCtx = useContext(AuthContext);
     
-    const { error, sendRequest } = useFetch();
+    const { isLoading, error, sendRequest } = useFetch();
 
     useEffect(() => {
         sendRequest({url: `http://localhost:4000/api/users/${authCtx.user.id}`},
@@ -93,6 +93,7 @@ const CreatedEvents = (props) => {
                     <CreateNewEventButton link="/create"/>
                 </section>
             }
+            {isLoading && <p>Events laden...</p>}
             <section className={classes.eventsList}>
                 {!noEvents && eventsList}
                 {noEvents && <p>Keine eigenen Events</p>}

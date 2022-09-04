@@ -18,7 +18,7 @@ const SubscribedEvents = (props) => {
     const [filteredSport, setFilteredSport] = useState(null);
     const [noEvents, setNoEvents] = useState(false);
     
-    const { error, sendRequest } = useFetch();
+    const { isLoading, error, sendRequest } = useFetch();
 
     const dataCtx = useContext(DataContext);
     const authCtx = useContext(AuthContext);
@@ -188,6 +188,7 @@ const SubscribedEvents = (props) => {
 
     return(
         <div className={classes.grid}>
+            {isLoading && <p>Events laden...</p>}
             {error && <p>{error}</p>}
             {subscribedEvents && !noEvents && !error && 
                 <section className={classes.filters}>

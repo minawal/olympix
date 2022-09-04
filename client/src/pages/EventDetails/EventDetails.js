@@ -151,7 +151,7 @@ const EventDetails = (props) => {
         <>
             {
                 (isLoading && !eventState.eventData) && 
-                <p>Event loading...</p>
+                <p>Event lädt...</p>
             }
             {eventState.eventData && 
             <div className={classes.grid}>
