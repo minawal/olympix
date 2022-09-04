@@ -13,4 +13,3 @@ Die Darstellung der App wurde vorerst nur für mobile Endgeräte optimiert.
 
 
 Ich wünsche dir viel Spaß mit Olympix!
-#### Abdullah Minawal
