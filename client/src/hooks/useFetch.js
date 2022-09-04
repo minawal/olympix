@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useContext } from "react";
+import { useState, useCallback, useContext } from "react";
 
 import AuthContext from "../context/AuthContext/AuthContext";
 
@@ -8,10 +8,6 @@ const useFetch = () => {
     const [error, setError] = useState(null);
 
     const authCtx = useContext(AuthContext);
-
-    useEffect(() => {
-      error && authCtx.logoutUser();
-    }, [error]);
 
     const sendRequest = useCallback(async (requestConfig, dataHandler, authCheck = true) => {
 
@@ -49,14 +45,14 @@ const useFetch = () => {
             setIsLoading(false);
   
           } catch (err) {
-            setError(err.message || 'Something went wrong!');
             authCtx.logoutUser();
+            setError(err.message || 'Etwas ist schief gelaufen.');
   
           } 
   
         } else {
           authCtx.logoutUser();
-          throw new Error ("Not authorized");
+          throw new Error ("Nicht berechtigt");
         }
 
       } catch(err) {
