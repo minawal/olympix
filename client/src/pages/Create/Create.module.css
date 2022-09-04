@@ -1,0 +1,9 @@
+.grid > h1 {
+    margin: 20px 0;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.grid > p {
+    margin: 20px 0;
+}

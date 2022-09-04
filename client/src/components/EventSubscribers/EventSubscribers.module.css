@@ -1,0 +1,14 @@
+.grid {
+    display: grid;
+    gap: 5px;
+}
+
+.grid > h3 {
+    margin: 0;
+    font-size: 1em;
+}
+
+.grid > p {
+    margin: 0;
+    font-size: 0.8em;
+}

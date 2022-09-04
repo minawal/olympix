@@ -1,0 +1,71 @@
+.grid {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background-color: #eee;
+}
+
+.content {
+    display: grid;
+    gap: 10px;
+    place-items: center;
+}
+
+.logo {
+    width: 50%;
+    height: auto;
+}
+
+.registerForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.registerForm > input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+
+}
+
+.errorText {
+    font-size: 0.8em;
+    margin: 0;
+    color: red;
+}
+
+.pwRules {
+    font-size: 0.8em;
+    margin: 0;
+}
+
+.pwNote {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.error {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.error > p {
+    font-size: 0.8em;
+    font-weight: bold;
+    margin: 10px 0;
+    color: red;
+}
+
+.login {
+    width: 80%;
+}
+
+.login > p {
+    font-size: 0.8em;
+    margin: 10px 0;
+}

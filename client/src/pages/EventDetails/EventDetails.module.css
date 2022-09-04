@@ -1,0 +1,59 @@
+.grid {
+    display: grid;
+}
+
+.content{
+    display: grid;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.description {
+    display: grid;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.description > h4 {
+    font-size: 1em;
+    margin: 0;
+}
+
+.description > p {
+    font-size: 0.8em;
+    font-weight: 300;
+    margin: 0;
+}
+
+.subscriberImageWrapper {
+    position: relative;
+    width: 100%;
+    min-width: 35px;
+    padding-bottom: 100%;
+}
+
+.subscriberImage {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.redBtn {
+    background-color: red;
+}
+
+.disabledBtn {
+    color: rgba(0, 0, 0, 0.5);
+    background-color: #eee;
+}
+
+.err {
+    display: grid;
+    justify-items: center;
+}
+
+.err > span {
+    color: red;
+}

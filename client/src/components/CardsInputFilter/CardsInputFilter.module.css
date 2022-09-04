@@ -1,0 +1,30 @@
+.inputWrapper {
+    display: grid;
+    gap: 5px;
+    position: relative;
+}
+
+.input {
+    padding: 10px;
+    font-size: 1em;
+    text-indent: 25px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 10px;
+    top: 13px;
+}
+
+.amount {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 0.8em;
+    text-indent: 1px;
+}
+
+.amount > span {
+    font-weight: bold;
+}

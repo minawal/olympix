@@ -1,0 +1,19 @@
+.appInfoText {
+    display: grid;
+    gap: 5px;
+}
+
+.appInfoText > p {
+    margin: 0;
+    font-size: 0.8em;
+    line-height: 1.3em;
+}
+
+.appInfoText a {
+    color: #000;
+    font-weight: 600;
+}
+
+.appInfoText > .bigText {
+    font-weight: 600;
+}

@@ -1,0 +1,19 @@
+.grid {
+    display: grid;
+    gap: 10px;
+}
+
+.filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+.eventsCounter {
+    font-size: 0.8em;
+}
+
+.eventsList {
+    display: grid;
+    gap: 5px;
+}

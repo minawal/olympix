@@ -1,0 +1,22 @@
+.link{
+    display: grid;
+    place-items: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: #eee;
+    border: 0px solid black;
+    border-radius: 5px;
+    color: #000;
+    text-decoration: none;
+}
+
+.icon{
+    height: 40px;
+    width: auto;
+}
+
+.sport{
+    margin: 0;
+    font-size: 1em;
+    font-weight: 300;
+}

@@ -1,0 +1,9 @@
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+.eventsList {
+    display: grid;
+    gap: 5px;
+}

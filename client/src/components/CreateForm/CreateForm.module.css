@@ -1,0 +1,61 @@
+.grid {
+    display: grid;
+    gap: 10px;
+}
+
+.form {
+    display: grid;
+    gap: 10px;
+}
+
+.form > div:not(:first-child) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+.input {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+.input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+}
+
+.textarea {
+    font-family: sans-serif;
+    font-size: 0.8em;
+    padding: 10px;
+}
+
+.invalidInput {
+    border-color: red;
+}
+
+.timeInput {
+    font-size: 0.8em;
+    background-color: #fff;
+}
+
+.feeWrapper {
+    position: relative;
+}
+
+.currency {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 0.9em;
+}
+
+.error {
+    margin: 0;
+    font-size: 0.6em;
+    font-weight: 400;
+    color: red;
+}

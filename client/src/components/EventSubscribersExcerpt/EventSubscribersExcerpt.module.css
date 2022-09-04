@@ -1,0 +1,20 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: minmax(35px, auto);
+    place-items: center;
+    gap: 10px;
+    border: 0.5px solid black; 
+    border-radius: 3px;
+    padding: 5px 10px;
+    background-color: #eee;
+}
+
+.grid > span {
+    font-size: 1em;
+}
+
+.caret {
+    font-size: 1.2em;
+    grid-column-start: 7;
+}

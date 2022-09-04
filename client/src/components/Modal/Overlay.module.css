@@ -1,0 +1,40 @@
+.grid {
+    display: grid;
+    grid-template-rows: 30px auto 40px;
+    z-index: 10;
+    background-color: #eee;
+    padding: 10px;
+    width: 75%;
+    height: 50%;
+    border-radius: 3px;
+  }
+
+.grid > header > h1 {
+    margin: 0;
+    font-size: 1em;
+}
+
+.grid > header > hr {
+    margin: 10px 0 0 0;
+    border-bottom: 0;
+}
+
+.grid > main {
+    overflow: scroll;
+    padding-top: 10px;
+}
+
+.grid > footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid > footer > button {
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #fff;
+    background-color: red;
+    margin: 0;
+    grid-column-start: 3;
+}

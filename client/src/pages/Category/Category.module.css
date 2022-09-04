@@ -1,0 +1,29 @@
+.grid {
+    display: grid;
+    gap: 5px;
+}
+
+.cards {
+    display: grid;
+    gap: 5px;
+}
+
+.filter {
+    display: grid;
+    gap: 5px;
+}
+
+.amount {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 0.8em;
+    text-indent: 1px;
+}
+
+.amount > span {
+    font-weight: bold;
+}
+
+.error {
+    margin: 20px 0;
+}
