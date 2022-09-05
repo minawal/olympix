@@ -12,8 +12,15 @@ import classes from './Header.module.css';
 const Header = (props) => {
     return(
         <header className={classes.header}>
-            <div>
-                {props.loggedIn && <Link to="/"><img src={Logo} alt="Olympix Logo" className={classes.logo}/></Link>}
+            <div className={classes.logo}>
+                {props.loggedIn && 
+                    <Link to="/">
+                        <img 
+                            src={Logo} 
+                            alt="Olympix Logo" 
+                        />
+                    </Link>
+                }
             </div>
             <FontAwesomeIcon 
                     icon={faInfoCircle} 

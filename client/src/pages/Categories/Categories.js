@@ -37,7 +37,7 @@ const Categories = (props) => {
                 <h1>Hi {name==="Gast" && "lieber"} {name}!</h1>
                 <span>Auf welche Sportart hast du Lust?</span>
             </section>
-            <section className={classes.boxes}>{categories}</section>
+            <section className={classes.box}>{categories}</section>
         </div>
     );
 };

@@ -5,7 +5,7 @@ const cors = require("cors");
 const eventRoutes = require("./routes/eventRoutes");
 const userRoutes = require("./routes/userRoutes");
 
-//const errorHandler = require("./middleware/errorMiddleware");
+const errorHandler = require("./middleware/errorMiddleware");
 const connectDB = require("./config/db");
 
 const app = express();
@@ -20,6 +20,6 @@ app.use(cors());
 app.use("/api/events", eventRoutes);
 app.use("/api/users",userRoutes);
 
-//app.use(errorHandler);
+app.use(errorHandler);
 
 app.listen(port, () => console.log(`Server started on port: ${port}`));

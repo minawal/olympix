@@ -1,6 +1,7 @@
 .grid {
     display: grid;
     gap: 20px;
+    margin-top: 20px;
 }
 
 .greeting {
@@ -9,7 +10,7 @@
 }
 
 .greeting > h1 {
-    margin: 20px 0 0 0;
+    margin: 0;
     font-size: 1em;
     font-weight: 600;
 }
@@ -18,7 +19,7 @@
     font-size: 1em;
 }
 
-.boxes{
+.box{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
