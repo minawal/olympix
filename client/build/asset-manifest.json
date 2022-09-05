@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.aba66c78.css",
+    "main.js": "/static/js/main.7ca466d8.js",
+    "static/js/787.8797e921.chunk.js": "/static/js/787.8797e921.chunk.js",
+    "static/media/fitness1.jpg": "/static/media/fitness1.37623382d1ca1ba04c11.jpg",
+    "static/media/fussball5.jpg": "/static/media/fussball5.5405e4c399c7cbfa88bc.jpg",
+    "static/media/fussball6.jpg": "/static/media/fussball6.3067ff29365ae321fc3b.jpg",
+    "static/media/1.png": "/static/media/1.ba82225e7c85ef5a099a.png",
+    "static/media/fussball2.jpg": "/static/media/fussball2.936434b7ff1f06ff9159.jpg",
+    "static/media/kampfsport1.jpg": "/static/media/kampfsport1.ad9ab7dd7ba5f99ad656.jpg",
+    "static/media/fussball3.jpg": "/static/media/fussball3.a0d9802ac7223f3ae7fe.jpg",
+    "static/media/turnen1.jpg": "/static/media/turnen1.fcd11d88b73dcad1e2c6.jpg",
+    "static/media/fussball1.jpg": "/static/media/fussball1.82cce5ee98977a3c6584.jpg",
+    "static/media/basketball1.jpg": "/static/media/basketball1.558d71d845773b4421ca.jpg",
+    "static/media/volleyball1.jpg": "/static/media/volleyball1.d9776c2c2ba0aa83bdd9.jpg",
+    "static/media/laufen1.jpg": "/static/media/laufen1.1c40ee31d9268838e43c.jpg",
+    "static/media/hockey1.jpg": "/static/media/hockey1.469c4100bedd6f9a4a5c.jpg",
+    "static/media/tennis1.jpg": "/static/media/tennis1.28b1d804d6178049876c.jpg",
+    "static/media/football1.jpg": "/static/media/football1.8e55de316a7f69e6aec9.jpg",
+    "static/media/fussball7.jpg": "/static/media/fussball7.bc29de870cc5c254a2db.jpg",
+    "static/media/fussball4.jpg": "/static/media/fussball4.041572ad65a267ec7558.jpg",
+    "static/media/Logo.png": "/static/media/Logo.1fe57db4c43d52482880.png",
+    "static/media/tennisIcon.svg": "/static/media/tennisIcon.33a693cf8f7d3c638c5bbc8d30ddf2e6.svg",
+    "static/media/hockeyIcon.svg": "/static/media/hockeyIcon.110d3351fb971db5f28621994ea1e95d.svg",
+    "static/media/footballIcon.svg": "/static/media/footballIcon.0e3d2940c999b0ca8d9a3518890c5a4b.svg",
+    "static/media/kampfsportIcon.svg": "/static/media/kampfsportIcon.a28ba59c0f8d642190dbc1fc76dbb7d1.svg",
+    "static/media/volleyballIcon.svg": "/static/media/volleyballIcon.a0f114abb0f694f30c0790e68b3cce8e.svg",
+    "static/media/turnenIcon.svg": "/static/media/turnenIcon.85dbba9d74d3b359a1adb6bd2bc72f82.svg",
+    "static/media/fitnessIcon.svg": "/static/media/fitnessIcon.889e700397aa2b2895bce43e75deb79b.svg",
+    "static/media/basketballIcon.svg": "/static/media/basketballIcon.33ac6f80b326d48663d0bba9d7132750.svg",
+    "static/media/laufenIcon.svg": "/static/media/laufenIcon.cf170f5abaa6c4471405e959de6f5086.svg",
+    "static/media/fussballIcon.svg": "/static/media/fussballIcon.72eebe952d2bb614c309cb5be75374cd.svg",
+    "index.html": "/index.html",
+    "main.aba66c78.css.map": "/static/css/main.aba66c78.css.map",
+    "main.7ca466d8.js.map": "/static/js/main.7ca466d8.js.map",
+    "787.8797e921.chunk.js.map": "/static/js/787.8797e921.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aba66c78.css",
+    "static/js/main.7ca466d8.js"
+  ]
+}
