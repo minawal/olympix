@@ -27,7 +27,7 @@ const UserContextProvider = (props) => {
     useEffect(() => {
 
         if(authCtx.user.id) {
-            sendRequest({url:`http://localhost:4000/api/users/${authCtx.user.id}`},
+            sendRequest({url:`https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`},
                 data => {
 
                     data.img = data.img ?? "1.png";

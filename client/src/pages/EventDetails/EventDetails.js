@@ -42,17 +42,17 @@ const EventDetails = (props) => {
 
     
     useEffect(() => { 
-        sendRequest({url:`http://localhost:4000/api/events/${category}/${eventId}`},
+        sendRequest({url:`https://olympixx.herokuapp.com/api/events/${category}/${eventId}`},
         data => {dispatchAction({type: "UPDATE_EVENT", data})});
 
-        sendRequest({url:`http://localhost:4000/api/users/${authCtx.user.id}`},
+        sendRequest({url:`https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`},
         data => {dispatchAction({type: "UPDATE_MEMBER", data, eventId})});
             
     }, [sendRequest, category, eventId, authCtx]);
 
 
     const subscribeHandler = () => {
-        sendRequest({url:`http://localhost:4000/api/events/${category}/${eventId}`},
+        sendRequest({url:`https://olympixx.herokuapp.com/api/events/${category}/${eventId}`},
             latestEventData => {
 
                 const underLimit = latestEventData.subscribers.length < latestEventData.limit;
@@ -67,7 +67,7 @@ const EventDetails = (props) => {
                     latestEventData.subscribers.map(subscriber => subscriber._id);
 
                 sendRequest({
-                    url:`http://localhost:4000/api/events/${eventId}`,
+                    url:`https://olympixx.herokuapp.com/api/events/${eventId}`,
                     method: "PATCH",
                     headers: {"Content-Type": "application/json"},
                     body: eventBodyData
@@ -75,7 +75,7 @@ const EventDetails = (props) => {
                     data => dispatchAction({type: "UPDATE_EVENT", data})
                 );
 
-                sendRequest({url:`http://localhost:4000/api/users/events/${authCtx.user.id}`},
+                sendRequest({url:`https://olympixx.herokuapp.com/api/users/events/${authCtx.user.id}`},
                     latestUserData => {
 
                         const alreadySub = latestUserData.subscribedEvents.some(event => (
@@ -87,7 +87,7 @@ const EventDetails = (props) => {
                             latestUserData.subscribedEvents.concat(eventId)
 
                         sendRequest({
-                            url:`http://localhost:4000/api/users/${authCtx.user.id}`,
+                            url:`https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`,
                             method: "PATCH",
                             headers: {"Content-Type": "application/json"},
                             body: {
@@ -105,10 +105,10 @@ const EventDetails = (props) => {
     };
 
     const unsubscribeHandler = () => {
-        sendRequest({url:`http://localhost:4000/api/events/${category}/${eventId}`},
+        sendRequest({url:`https://olympixx.herokuapp.com/api/events/${category}/${eventId}`},
             latestEventData => {
                 sendRequest({
-                        url:`http://localhost:4000/api/events/${eventId}`,
+                        url:`https://olympixx.herokuapp.com/api/events/${eventId}`,
                         method: "PATCH",
                         headers: {"Content-Type": "application/json"},
                         body: latestEventData.subscribers
@@ -120,10 +120,10 @@ const EventDetails = (props) => {
             }
         );
         
-        sendRequest({url:`http://localhost:4000/api/users/events/${authCtx.user.id}`},
+        sendRequest({url:`https://olympixx.herokuapp.com/api/users/events/${authCtx.user.id}`},
             latestUserData => {
                 sendRequest({
-                    url:`http://localhost:4000/api/users/${authCtx.user.id}`,
+                    url:`https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`,
                     method: "PATCH",
                     headers: {"Content-Type": "application/json"},
                     body: {
