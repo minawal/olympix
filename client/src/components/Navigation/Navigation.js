@@ -14,7 +14,7 @@ const Navigation = (props) => {
     
     const location = useLocation();
 
-    let isActiveState = {
+    const isActiveState = {
         startIsActive: false,
         eventsIsActive: false,
         createIsActive: false,
