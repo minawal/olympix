@@ -43,16 +43,16 @@ const Create = (props) => {
         };
 
         sendRequest({
-            url:`http://localhost:4000/api/events`,
+            url:`https://olympixx.herokuapp.com/api/events`,
             method: "POST",
             headers: { "Content-Type": "application/json"},
             body: newEventData
         },
             newEvent => {
-                sendRequest({url:`http://localhost:4000/api/users/${authCtx.user.id}`},
+                sendRequest({url:`https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`},
                     data => {
                         sendRequest({
-                            url:`http://localhost:4000/api/users/${authCtx.user.id}`,
+                            url:`https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`,
                             method: "PATCH",
                             headers: { "Content-Type": "application/json"},
                             body: {

@@ -19,7 +19,7 @@ const CreatedEvents = (props) => {
     const { isLoading, error, sendRequest } = useFetch();
 
     useEffect(() => {
-        sendRequest({url: `http://localhost:4000/api/users/${authCtx.user.id}`},
+        sendRequest({url: `https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`},
             data => {
                 setCreatedEvents(data.createdEvents);
                 data.createdEvents.length === 0 && setNoEvents(true);
@@ -29,15 +29,15 @@ const CreatedEvents = (props) => {
     const deleteHandler = (e, eventPath) => {
         e.preventDefault();
         sendRequest({
-            url:`http://localhost:4000/api/events/${eventPath.eventId}`,
+            url:`https://olympixx.herokuapp.com/api/events/${eventPath.eventId}`,
             method: "DELETE"
         },
             (data) => null
         );
-        sendRequest({url: `http://localhost:4000/api/users/${authCtx.user.id}`},
+        sendRequest({url: `https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`},
             data => {
                 sendRequest({
-                    url:`http://localhost:4000/api/users/${authCtx.user.id}`,
+                    url:`https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`,
                     method: "PATCH",
                     headers: { "Content-Type": "application/json"},
                     body: {

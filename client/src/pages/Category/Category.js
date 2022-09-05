@@ -21,7 +21,7 @@ const Category = (props) => {
 
     useEffect(() => {
         const requestConfig = {
-            url: `http://localhost:4000/api/events/${category}`,
+            url: `https://olympixx.herokuapp.com/api/events/${category}`,
         };
 
         const dataHandler = (data) => {

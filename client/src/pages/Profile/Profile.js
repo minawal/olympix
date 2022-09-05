@@ -36,7 +36,7 @@ const Profile = (props) => {
     useEffect(() => {
         authCtx.checkAuth();
 
-        sendRequest({url:`http://localhost:4000/api/users/${authCtx.user.id}`},
+        sendRequest({url:`https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`},
             data => {
 
                 data.img = data.img ?? "1.png";
@@ -61,7 +61,7 @@ const Profile = (props) => {
     const changePropHandler = async(updatedData) => {
         if("email" in updatedData) {
             let emailStatus;
-            await sendRequest({url:`http://localhost:4000/api/users/checkemail/${updatedData.email}`},
+            await sendRequest({url:`https://olympixx.herokuapp.com/api/users/checkemail/${updatedData.email}`},
             data => emailStatus = data);
             
             if(emailStatus) {
@@ -75,7 +75,7 @@ const Profile = (props) => {
         setUserData((prevState) => Object.assign(prevState, updatedData));
 
         sendRequest({
-            url:`http://localhost:4000/api/users/${authCtx.user.id}`,
+            url:`https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`,
             method: "PATCH",
             headers: {"Content-Type": "application/json"},
             body: updatedData
@@ -91,7 +91,7 @@ const Profile = (props) => {
     const changePasswordHandler = (updatedPw) => {
 
         sendRequest({
-            url:`http://localhost:4000/api/users/password/${authCtx.user.id}`,
+            url:`https://olympixx.herokuapp.com/api/users/password/${authCtx.user.id}`,
             method: "PATCH",
             headers: {"Content-Type": "application/json"},
             body: updatedPw
@@ -119,7 +119,7 @@ const Profile = (props) => {
         formData.append("name", files[0].name);
         formData.append("userImage", files[0]);
 
-        Axios.patch(`http://localhost:4000/api/users/upload/${authCtx.user.id}`, formData).then(response => {
+        Axios.patch(`https://olympixx.herokuapp.com/api/users/upload/${authCtx.user.id}`, formData).then(response => {
             setImgErr(null);
             setIsEditing(null);
             userCtx.updateUser(
@@ -139,7 +139,7 @@ const Profile = (props) => {
     const deleteUserHandler = () => {
         if(window.confirm("Bist du dir sicher, dass du dein Konto löschen möchtest?")) {
             sendRequest({
-                url:`http://localhost:4000/api/users/${authCtx.user.id}`,
+                url:`https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`,
                 method: "DELETE"
             },
                 data => authCtx.logoutUser()

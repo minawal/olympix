@@ -14,7 +14,7 @@ const useToken = () => {
     const getToken = (entry, inputData) => {
 
         const requestConfig = {
-            url: `http://localhost:4000/api/users/${entry}`,
+            url: `https://olympixx.herokuapp.com/api/users/${entry}`,
             method: "POST",
             body: inputData,
             headers: {"Content-Type": "application/json"}
