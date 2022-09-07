@@ -28,7 +28,7 @@ const CardsSelectFilter = React.forwardRef((props, ref) => {
     return(
         <div className={classes.grid}>
             <select 
-                className={classes.select}
+                className={`${classes.select} ${props.className}`}
                 name={props.name} 
                 defaultValue={props.defaultValue} 
                 onChange={changeHandler}

@@ -26,7 +26,7 @@ const Profile = (props) => {
 
     const authCtx = useContext(AuthContext);
     const userCtx = useContext(UserContext);
-    const dataCtx = useContext(DataContext)
+    const dataCtx = useContext(DataContext);
 
     const { isLoading, error, sendRequest } = useFetch();
 
@@ -36,24 +36,7 @@ const Profile = (props) => {
     useEffect(() => {
         authCtx.checkAuth();
 
-        sendRequest({url:`https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`},
-            data => {
-
-                data.img = data.img ?? "1.png";
-
-                const user = {
-                    img: data.img === "1.png" ? 
-                        data.img : 
-                        btoa(new Uint8Array(data.img.img.data.data)
-                        .reduce((data, byte) => data + String.fromCharCode(byte), '')
-                    ),
-                    firstName: data.firstName,
-                    lastName: data.lastName,
-                    email: data.email
-                };
-
-                setUserData(user);
-            });
+        setUserData(userCtx.user);
 
         authCtx.user.id === dataCtx.guestID ? setIsGuest(true) : setIsGuest(false);
     }, [sendRequest, authCtx, dataCtx, userCtx]);
@@ -155,7 +138,7 @@ const Profile = (props) => {
 
     return(
         <>
-            {isLoading && <p>Profil lädt...</p>}
+            {(isLoading && !userData) && <p>Profil lädt...</p>}
             {userData && <div className={classes.grid}>
                 <header>
                     <div className={classes.imageWrapper}>

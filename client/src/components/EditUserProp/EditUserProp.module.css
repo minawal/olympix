@@ -30,3 +30,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 5px;
 }
+
+.submitBtn {
+    padding: 10px 5px;
+}

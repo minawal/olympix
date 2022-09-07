@@ -56,6 +56,8 @@ const EventDetails = (props) => {
 
         const asyncFetch = async() => {
 
+            authCtx.checkAuth();
+
             await sendRequest({url:`https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`},
             data => {dispatchAction({type: "INITILIZE_MEMBER", data, eventId})});
 
@@ -67,7 +69,7 @@ const EventDetails = (props) => {
 
         asyncFetch();
             
-    }, [sendRequest, category, eventId, authCtx.user]);
+    }, [sendRequest, category, eventId, authCtx.user, authCtx.checkAuth]);
 
     useEffect(() => {
         dataCtx.activeInfo && closeModalHandler();
