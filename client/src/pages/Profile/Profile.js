@@ -102,7 +102,7 @@ const Profile = (props) => {
         formData.append("name", files[0].name);
         formData.append("userImage", files[0]);
 
-        Axios.patch(`http://olympixx.herokuapp.com/api/users/upload/${authCtx.user.id}`, formData).then(response => {
+        Axios.patch(`https://olympixx.herokuapp.com/api/users/upload/${authCtx.user.id}`, formData).then(response => {
             setImgErr(null);
             setIsEditing(null);
             userCtx.updateUser(
