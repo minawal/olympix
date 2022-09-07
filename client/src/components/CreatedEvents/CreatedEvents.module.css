@@ -7,3 +7,7 @@
     display: grid;
     gap: 5px;
 }
+
+.eventsList > p {
+    margin: 20px 0;
+}

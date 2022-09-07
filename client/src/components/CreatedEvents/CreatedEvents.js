@@ -9,9 +9,11 @@ import CreateNewEventButton from "../CreateNewEventButton";
 
 import classes from './CreatedEvents.module.css';
 
+
 const CreatedEvents = (props) => {
 
     const [createdEvents, setCreatedEvents] = useState(null);
+    const [subscribedEvents, setSubscribedEvents] = useState(null);
     const [noEvents, setNoEvents] = useState(false);
 
     const authCtx = useContext(AuthContext);
@@ -22,40 +24,35 @@ const CreatedEvents = (props) => {
         sendRequest({url: `https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`},
             data => {
                 setCreatedEvents(data.createdEvents);
+                setSubscribedEvents(data.subscribedEvents);
                 data.createdEvents.length === 0 && setNoEvents(true);
             });
     }, [sendRequest, authCtx]);
 
     const deleteHandler = (e, eventPath) => {
         e.preventDefault();
+
+        const updatedCreatedEvents = createdEvents.filter(event => event._id !== eventPath.eventId);
+        setCreatedEvents(updatedCreatedEvents);
+        const updatedSubscribedEvents = subscribedEvents.filter(event => event._id !== eventPath.eventId);
+        setSubscribedEvents(updatedSubscribedEvents);
+        updatedCreatedEvents.length === 0 && setNoEvents(true);
+
         sendRequest({
             url:`https://olympixx.herokuapp.com/api/events/${eventPath.eventId}`,
             method: "DELETE"
-        },
-            (data) => null
-        );
-        sendRequest({url: `https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`},
-            data => {
-                sendRequest({
-                    url:`https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`,
-                    method: "PATCH",
-                    headers: { "Content-Type": "application/json"},
-                    body: {
-                        createdEvents: data.createdEvents
-                            .map(event => event._id)
-                            .filter(event => event !== eventPath.eventId),
-                        subscribedEvents: data.subscribedEvents
-                            .map(event => event._id)
-                            .filter(event => event !== eventPath.eventId)
-                    }
-                },
-                    data => {
-                        setCreatedEvents(data.createdEvents);
-                        data.createdEvents.length === 0 && setNoEvents(true);
-                    }
-                );
+        },  data => null);
+        sendRequest({
+            url:`https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`,
+            method: "PATCH",
+            headers: { "Content-Type": "application/json"},
+            body: {
+                createdEvents: updatedCreatedEvents
+                    .map(event => event._id),
+                subscribedEvents: updatedSubscribedEvents
+                    .map(event => event._id)
             }
-        );
+        },  data => null);
     };
 
     let eventsList;
@@ -93,7 +90,7 @@ const CreatedEvents = (props) => {
                     <CreateNewEventButton link="/create"/>
                 </section>
             }
-            {isLoading && <p>Events laden...</p>}
+            {(isLoading && !createdEvents) && <p>Events laden...</p>}
             <section className={classes.eventsList}>
                 {!noEvents && eventsList}
                 {noEvents && <p>Keine eigenen Events</p>}

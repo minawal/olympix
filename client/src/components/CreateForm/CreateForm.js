@@ -253,7 +253,7 @@ const CreateForm = (props) => {
                 <div>
                     <input 
                         className={`${classes.input} ${classes.timeInput} ${dateHasError && classes.invalidInput}`} 
-                        type="date" 
+                        type="date" placeholder="tt.mm.jjjj"
                         min={currentDate}
                         max="2022-12-31"
                         onChange={() => changeDateHandler(dateRef.current.value)}
