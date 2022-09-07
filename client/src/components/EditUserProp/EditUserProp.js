@@ -67,12 +67,14 @@ const EditUserProp = (props) => {
             }
             <div className={classes.btn}>
                 <SmallButton
+                    className={classes.submitBtn}
                     btnStyle="red"
                     onClick={quitEditHandler}
                     type="reset"
                 >Abbrechen
                 </SmallButton>
                 <SmallButton
+                    className={classes.submitBtn}
                     onClick={props.onSave}
                     type="submit"
                 >Speichern
