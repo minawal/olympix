@@ -23,9 +23,9 @@
     font-size: 1em;
 }
 
-/* .input::-webkit-inner-spin-button {
+.input::-webkit-inner-spin-button {
     -webkit-appearance: none !important;
-} */
+}
 
 .textarea {
     font-family: sans-serif;
@@ -49,8 +49,8 @@
 .currency {
     position: absolute;
     right: 15px;
-    top: 10px;
-    font-size: 0.9em;
+    top: 25%;
+    font-size: 1em;
 }
 
 .error {
