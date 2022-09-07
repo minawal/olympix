@@ -32,7 +32,7 @@ const SubscribedEvents = (props) => {
 
     useEffect(() => {
 
-        sendRequest({url: `https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`},
+        sendRequest({url: `http://localhost:4000/api/users/${authCtx.user.id}`},
         data => {
             setSubscribedEvents(data.subscribedEvents);
             data.subscribedEvents.length === 0 && setNoEvents(true);
@@ -44,7 +44,7 @@ const SubscribedEvents = (props) => {
         if(value === "") {
             history.push(location.pathname);
             !filteredSport && (
-                sendRequest({url: `https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`},
+                sendRequest({url: `http://localhost:4000/api/users/${authCtx.user.id}`},
                 data => {
                     setSubscribedEvents(data.subscribedEvents);
                     data.subscribedEvents.length === 0 && setNoEvents(true);
@@ -61,12 +61,19 @@ const SubscribedEvents = (props) => {
 
     const unsubscribeHandler = (e, eventPath) => {
         e.preventDefault();
+
+        const updatedSubscribedEvents = subscribedEvents
+            .filter(event => event._id !== eventPath.eventId);
+
+        setSubscribedEvents(updatedSubscribedEvents);
+        updatedSubscribedEvents.length === 0 && setNoEvents(true);
+
         sendRequest({
-            url:`https://olympixx.herokuapp.com/api/events/${eventPath.category}/${eventPath.eventId}`,
+            url:`http://localhost:4000/api/events/${eventPath.category}/${eventPath.eventId}`,
         },
             data => {
                 sendRequest({
-                    url:`https://olympixx.herokuapp.com/api/events/${eventPath.eventId}`,
+                    url:`http://localhost:4000/api/events/${eventPath.eventId}`,
                     method: "PATCH",
                     headers: { "Content-Type": "application/json"},
                     body: data.subscribers
@@ -77,26 +84,17 @@ const SubscribedEvents = (props) => {
                 );
             }
         );
+
         sendRequest({
-            url: `https://olympixx.herokuapp.com/api/users/events/${authCtx.user.id}`
+            url:`http://localhost:4000/api/users/${authCtx.user.id}`,
+            method: "PATCH",
+            headers: { "Content-Type": "application/json"},
+            body: {
+                subscribedEvents: updatedSubscribedEvents.map(event => event._id)
+            }
         },
-            data => {
-                sendRequest({
-                    url:`https://olympixx.herokuapp.com/api/users/${authCtx.user.id}`,
-                    method: "PATCH",
-                    headers: { "Content-Type": "application/json"},
-                    body: {
-                        subscribedEvents: data.subscribedEvents
-                            .filter(event => event !== eventPath.eventId),
-                        createdEvents: data.createdEvents
-                    }
-                },
-                    data => {
-                        setSubscribedEvents(data.subscribedEvents);
-                        data.subscribedEvents.length === 0 && setNoEvents(true);
-                    }
-            );
-        });
+            data => null
+        );
     };
 
     let eventsList;
@@ -188,7 +186,7 @@ const SubscribedEvents = (props) => {
 
     return(
         <div className={classes.grid}>
-            {isLoading && <p>Events laden...</p>}
+            {(isLoading && !subscribedEvents) && <p>Events laden...</p>}
             {error && <p>{error}</p>}
             {subscribedEvents && !noEvents && !error && 
                 <section className={classes.filters}>
