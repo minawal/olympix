@@ -36,8 +36,6 @@ const useFetch = () => {
             const data = await response.json();
   
             dataHandler(data);
-
-            setIsLoading(false);
   
           } catch (err) {
             authCtx.logoutUser();
