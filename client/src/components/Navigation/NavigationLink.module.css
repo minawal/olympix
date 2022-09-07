@@ -1,6 +1,5 @@
 .navlink{
     display: grid;
-    gap: 5px;
     justify-items: center;
     text-decoration: none;
     color: black;
