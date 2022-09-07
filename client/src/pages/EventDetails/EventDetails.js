@@ -80,7 +80,9 @@ const EventDetails = (props) => {
         const data = {
             user: userCtx.user,
             eventSubscribers: eventState.eventSubscribers,
+            subscribedEvents: eventState.subscribedEvents,
             subscribersExcerpt: eventState.subscribersExcerpt,
+            eventId: eventId,
             limit: eventState.eventData.limit,
             type: "subscribe"
         };
@@ -116,8 +118,10 @@ const EventDetails = (props) => {
         const data = {
             user: userCtx.user,
             eventSubscribers: eventState.eventSubscribers,
+            subscribedEvents: eventState.subscribedEvents,
             subscriberImages: eventState.subscriberImages,
             subscribersExcerpt: eventState.subscribersExcerpt,
+            eventId: eventId,
             limit: eventState.eventData.limit,
             type: "unsubscribe"
         };
@@ -391,6 +395,15 @@ function eventReducer(state, action) {
                     .filter(subscriber => subscriber !== eventData.user.id);
             };
 
+            let subscribedEvents;
+            if(eventData.type === "subscribe") {
+                subscribedEvents = eventData.subscribedEvents
+                    .concat(eventData.eventId);
+            } else if(eventData.type === "unsubscribe") {
+                subscribedEvents = eventData.subscribedEvents
+                    .filter(event => event !== eventData.eventId);
+            };
+
             let subscribersExcerpt;
             if(eventData.type === "subscribe") {
                 const imgData = eventData.user.img;
@@ -452,6 +465,7 @@ function eventReducer(state, action) {
             return {
                 ...state,
                 eventSubscribers,
+                subscribedEvents,
                 subscribersExcerpt,
                 furtherAmount,
                 leftPlacesAmount,
