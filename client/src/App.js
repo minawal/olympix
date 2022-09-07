@@ -26,13 +26,6 @@ function App() {
 
   useEffect(() => {
 
-    window.addEventListener("load",function() {
-        setTimeout(function(){
-            // Hide the address bar:
-            window.scrollTo(0, 1);
-        }, 0);
-    });
-
     const checkAuth = (() => {
       if(!authorized) {
         setRenderApp(true)
