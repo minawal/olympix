@@ -1,7 +1,12 @@
 .grid {
     display: grid;
     grid-template-columns: 10px auto;
+    align-items: center;
     gap: 10px;
     font-size: 0.8em;
+}
+
+.grid > span {
+    margin-top: -1px;
 }
 

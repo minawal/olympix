@@ -1,7 +1,6 @@
 .grid {
     display: grid;
     gap: 5px;
-    font-weight: 300;
 }
 
 .grid > h2 {

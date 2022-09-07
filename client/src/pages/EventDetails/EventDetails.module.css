@@ -21,23 +21,7 @@
 
 .description > p {
     font-size: 0.8em;
-    font-weight: 300;
     margin: 0;
-}
-
-.subscriberImageWrapper {
-    position: relative;
-    width: 100%;
-    min-width: 35px;
-    padding-bottom: 100%;
-}
-
-.subscriberImage {
-    object-fit: cover;
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    position: absolute;
 }
 
 .redBtn {

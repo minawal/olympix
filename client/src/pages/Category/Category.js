@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router";
+
+import AuthContext from "../../context/AuthContext/AuthContext";
 
 import useFetch from "../../hooks/useFetch";
 
@@ -15,11 +17,15 @@ const Category = (props) => {
     const [filteredEvents, setFilteredEvents] = useState([]);
     const [noEvents, setNoEvents] = useState(null);
 
-    const { category } = useParams();
+    const authCtx = useContext(AuthContext)
+
+    const { category } = useParams(AuthContext);
 
     const { isLoading, error, sendRequest } = useFetch();
 
     useEffect(() => {
+        authCtx.checkAuth();
+
         const requestConfig = {
             url: `https://olympixx.herokuapp.com/api/events/${category}`,
         };
