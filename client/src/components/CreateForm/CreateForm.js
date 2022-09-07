@@ -253,10 +253,11 @@ const CreateForm = (props) => {
                 <div>
                     <input 
                         className={`${classes.input} ${classes.timeInput} ${dateHasError && classes.invalidInput}`} 
-                        type="date" placeholder="tt.mm.jjjj"
+                        type="date"
                         min={currentDate}
                         max="2022-12-31"
                         onChange={() => changeDateHandler(dateRef.current.value)}
+                        onFocus={() => (dateRef.current.type = "date")}
                         onBlur={dateTouchedHandler}
                         value={dateValue}  
                         ref={dateRef}
@@ -265,6 +266,7 @@ const CreateForm = (props) => {
                         className={`${classes.input} ${classes.timeInput} ${timeHasError && classes.invalidInput}`} 
                         type="time" 
                         onChange={() => changeTimeHandler(timeRef.current.value)}
+                        onFocus={() => (timeRef.current.type = "time")}
                         onBlur={timeTouchedHandler}
                         value={timeValue} 
                         ref={timeRef}
