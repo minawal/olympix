@@ -195,6 +195,10 @@ exports.deleteUser = async (req, res) => {
 
         const userID = req.params.id;
 
+        if(userID === "631001e497865c8727d53cff") {
+            throw new Error("Nutzer kann nicht gelöscht werden.");
+        };
+
         const user = await User.findOne({_id: userID});
 
         if(!user) {
@@ -277,6 +281,10 @@ exports.updateUserPassword = async (req, res) => {
 
         const userID = req.params.id;
 
+        if(userID === "631001e497865c8727d53cff") {
+            throw new Error("Passwort kann nicht geändert werden.");
+        };
+
         const user = await User.findById(userID);
 
         if(!user) {
@@ -327,8 +335,8 @@ exports.uploadUserImg = async (req, res) => {
             throw new Error("Dateityp ist nicht erlaubt.");
         };
 
-        if(req.file.size > 3 * 1024 * 1024) {
-            throw new Error("Datei ist zu groß (max 3MB).");
+        if(req.file.size > 1 * 1024 * 1024) {
+            throw new Error("Datei ist zu groß (max 1MB).");
         };
         
         user.img = {
