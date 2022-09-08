@@ -97,6 +97,7 @@ const Profile = (props) => {
     const changeImgHandler = (files) => {
 
         setImgErr(null);
+        console.log("");
 
         const formData = new FormData();
         formData.append("name", files[0].name);
