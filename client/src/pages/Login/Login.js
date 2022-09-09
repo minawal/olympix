@@ -17,7 +17,7 @@ const Login = (props) => {
 
     const [loginData, setLoginData] = useState({email:"gast@olympix.de", password:dataCtx.guestPW});
 
-    const { error, getToken } = useToken();
+    const { isLoading, error, getToken } = useToken();
 
     const updateData = (event) => {
         setLoginData(prevState => ({
@@ -54,7 +54,8 @@ const Login = (props) => {
                     <BigButton 
                         style={{width: "100%"}}
                         onClick={submitHandler}
-                        >Anmelden</BigButton>
+                        >{isLoading ? "Lädt..." : "Anmelden"}
+                    </BigButton>
                 </form>
                 <section className={classes.register}>
                     <p>Noch nicht registriert?</p>

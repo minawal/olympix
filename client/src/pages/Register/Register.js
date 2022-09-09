@@ -19,7 +19,7 @@ const Register = (props) => {
     const emailRef = useRef();
     const passwordRef = useRef();
 
-    const { error, getToken } = useToken();
+    const { isLoading, error, getToken } = useToken();
 
     const validateName = (value) => value.trim().match(/^[a-zA-ZäöüÄÖÜß '\s-]{2,}$/);
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -166,7 +166,8 @@ const Register = (props) => {
                     <BigButton 
                         style={{width: "100%"}}
                         onClick={submitHandler}
-                        >Registrieren</BigButton>
+                        >{isLoading ? "Lädt..." : "Registrieren"}
+                    </BigButton>
                 </form>
                 <section className={classes.login}>
                     <p>Du hast bereits ein Konto?</p>
